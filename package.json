@@ -1,0 +1,36 @@
+{
+  "name": "challenge-countries",
+  "version": "1.0.0",
+  "description": "This challenge is to create a challenge to create an app that gets a list of countries from an API and has the ability to search and filter them.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "budo app/index.js -l -d public -- -t localenvify -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] -t",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Interlincx/challenge-countries.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Interlincx/challenge-countries/issues"
+  },
+  "homepage": "https://github.com/Interlincx/challenge-countries#readme",
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/styles": "^4.10.0",
+    "babelify": "^10.0.0",
+    "create-react-class": "^15.6.3",
+    "localenvify": "^1.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "budo": "^11.6.4",
+    "standard": "^14.3.4"
+  }
+}
