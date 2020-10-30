@@ -87,6 +87,17 @@ module.exports = () => {
     setMaxPop(event.target.value)
   }
 
+  const filterCountry = (country) => {
+    const regionMatch =
+      region === 'all' || country.region.toLowerCase() === region
+
+    const popMatch =
+      filterPopulation === false ||
+      (minPop <= country.population && maxPop >= country.population)
+
+    return regionMatch && popMatch
+  }
+
   const handleSearch = () => {
     setFiltered(true)
 
@@ -96,14 +107,7 @@ module.exports = () => {
         const nameMatch =
           country.name.toLowerCase().includes(name.toLowerCase())
 
-        const regionMatch =
-          region === 'all' || country.region.toLowerCase() === region
-
-        const popMatch =
-          filterPopulation === false ||
-          (minPop <= country.population && maxPop >= country.population)
-
-        return nameMatch && regionMatch && popMatch
+        return nameMatch && filterCountry(country)
       }))
     }
     else if (searchBy === 'capital') {
@@ -111,14 +115,7 @@ module.exports = () => {
         const capitalMatch =
           country.capital.toLowerCase().includes(capital.toLowerCase())
 
-        const regionMatch =
-          region === 'all' || country.region.toLowerCase() === region
-
-        const popMatch =
-          filterPopulation === false ||
-          (minPop <= country.population && maxPop >= country.population)
-
-        return capitalMatch && regionMatch && popMatch
+        return capitalMatch && filterCountry(country)
       }))
     }
     else {
@@ -138,14 +135,7 @@ module.exports = () => {
           langMatch = true
         }
 
-        const regionMatch =
-          region === 'all' || country.region.toLowerCase() === region
-
-        const popMatch =
-          filterPopulation === false ||
-          (minPop <= country.population && maxPop >= country.population)
-
-        return langMatch && regionMatch && popMatch
+        return langMatch && filterCountry(country)
       }))
     }
   }
